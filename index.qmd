@@ -2,7 +2,7 @@
 title: Felipe Gonzalez
 image: img/profile.webp
 page-layout: full
-lang: es
+lang: en
 about:
   template: trestles
   image-width: 20em
