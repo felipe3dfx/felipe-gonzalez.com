@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
 
 # Metadata stuff
 author-meta: "Felipe Gonzalez"
@@ -27,7 +26,7 @@ format:
   html:
     link-external-newwindow: true
     link-external-filter: '^(?:http:|https:)\/\/www\.beamilz\.com\/**'
-    theme: 
+    theme:
       light: cosmo
       dark: cyborg
     css: styles.css
