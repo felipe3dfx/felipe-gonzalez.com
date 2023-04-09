@@ -1,10 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# Blog-en
-
-<!-- badges: start -->
-<!-- badges: end -->
+# felipe-gonzalez.com
 
 In this repository you can find the code used to generate my personal web page (in
 English): <https://felipe-gonzalez.com/>
