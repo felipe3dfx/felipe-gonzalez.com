@@ -10,10 +10,6 @@ website:
   repo-url: https://github.com/felipe3dfx/felipe-gonzalez.com
   repo-actions: [issue]
   reader-mode: true
-  cookie-consent:
-    type: express
-    style: headline
-    palette: dark
   twitter-card:
     creator: "@felipezul"
     site: "@felipezul"
@@ -24,8 +20,6 @@ website:
 
 format:
   html:
-    link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/www\.felipe-gonzalez\.com\/**'
     theme:
       light: cosmo
       dark: cyborg
