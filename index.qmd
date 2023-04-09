@@ -14,7 +14,7 @@ about:
     - icon: github
       text: Github
       href: https://github.com/felipe3dfx
-    - icon: email
+    - icon: envelope-fill
       text: Email
       href: mailto:felipe3dfx@gmail.com
     - icon: linkedin
