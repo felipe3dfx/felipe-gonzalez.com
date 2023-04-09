@@ -8,6 +8,7 @@ website:
   title: "Felipe Gonzalez"
   description: "Felipe Gonzalez's personal website"
   repo-url: https://github.com/felipe3dfx/felipe-gonzalez.com
+  favicon: img/favicon.ico
   repo-actions: [issue]
   reader-mode: true
   twitter-card:
@@ -25,6 +26,3 @@ format:
       dark: cyborg
     css: styles.css
     toc: true
-
-
-
