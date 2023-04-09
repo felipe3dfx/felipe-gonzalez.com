@@ -28,11 +28,11 @@ jobs:
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Setup Pages
-        uses: actions/configure-pages@v1
+        uses: actions/configure-pages@main
       - name: Render Website
         run: quarto render
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@main
         with:
           path: '_site'
       - name: Deploy to GitHub Pages
