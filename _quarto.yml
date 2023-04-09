@@ -25,7 +25,7 @@ website:
 format:
   html:
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/www\.beamilz\.com\/**'
+    link-external-filter: '^(?:http:|https:)\/\/www\.felipe-gonzalez\.com\/**'
     theme:
       light: cosmo
       dark: cyborg
