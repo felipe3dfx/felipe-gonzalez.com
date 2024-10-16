@@ -22,7 +22,7 @@ about:
       href: https://www.linkedin.com/in/felipe3dfx/
 ---
 
-I am the **CTO** of [Axiacore](https://axiacore.com) with **10 years** of experience as a **Multimedia Engineer** in web development. I have worked as a **backend developer** for various tech companies, including my current position as **CTO**. I am **passionate** about technology and eager to share my knowledge.
+I am the **Tech Lead** of [Grupo Ilao](https://grupoilao.com) with **10 years** of experience as a **Multimedia Engineer** in web development. I have worked as a **backend developer** for various tech companies, including my current position as **Tech Lead**. I am **passionate** about technology and eager to share my knowledge.
 
 After studying [Multimedia Engineering](https://www.umng.edu.co/programas/pregrados/ingenieria-multimedia) at university, I worked on the **RAIM project** and then became a backend developer in marketing agencies. I joined [Axiacore](https://axiacore.com) in 2016 and became **CTO** in 2018. I am **results-oriented, decisive, and direct**. I take risks and have excellent problem-solving skills.
 
