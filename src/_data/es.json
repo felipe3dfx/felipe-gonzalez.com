@@ -35,12 +35,12 @@
   "skip": "Ir al contenido",
   "hero": {
     "name": "Felipe Gonzalez",
-    "line": "Tech Lead en Grupo ilao. Django, equipos, y entregar cosas pequeñas que funcionan.",
+    "line": "Lidero equipos que construyen y mantienen productos web con Python y Django. Hoy, en Grupo ilao.",
     "location": "Cajicá, Colombia · remoto"
   },
   "contact": {
     "label": "contacto",
-    "lead": "Si algo de esto te resonó, escríbeme.",
+    "lead": "Si quieres conversar sobre Django, liderazgo técnico o desarrollo con IA, escríbeme.",
     "links": [
       {
         "label": "GitHub",
@@ -68,24 +68,24 @@
   "about": {
     "label": "sobre mí",
     "paragraphs": [
-      "Hola, soy Felipe. Construyo cosas para la web desde 2013, casi todas con Python y Django, y desde hace ocho años lidero a las personas que las construyen.",
-      "Estudié Ingeniería Multimedia, que es una forma elegante de decir que empecé preocupándome por cómo se ven las cosas y terminé preocupándome por cómo funcionan. Pasé casi nueve años en Axiacore, primero como desarrollador y luego como CTO, aprendiendo que entregar software es sobre todo cuestión de personas, claridad, y decir que no a las cosas correctas. Hoy lidero ingeniería en Grupo ilao, donde estamos llevando software moderno a una industria que todavía funciona con papel y hojas de cálculo.",
-      "Lo que disfruto: tecnología aburrida que funciona, equipos pequeños que son dueños de lo que entregan, y ver a un desarrollador crecer hasta que ya no me necesita. Lo que evito: código ingenioso, reescrituras grandes, y reuniones que pudieron ser un pull request.",
+      "Hola, soy Felipe. Construyo software para la web desde 2013. Estudié Ingeniería Multimedia: empecé por cómo se ven las cosas y fui encontrando mi lugar en cómo funcionan.",
+      "Pasé casi nueve años en Axiacore, primero como desarrollador y luego como CTO. Allí aprendí que entregar software depende tanto de las personas y las prioridades claras como del código.",
+      "Disfruto trabajar con equipos pequeños que se hacen responsables de lo que entregan y ver a un desarrollador crecer hasta que ya no me necesita. Busco dar contexto y autonomía, no tener la última palabra en cada decisión.",
       "Vivo en Cajicá, un pueblo al norte de Bogotá, y trabajo remoto."
     ]
   },
   "now": {
     "label": "ahora",
     "items": [
-      "Liderando el equipo de ingeniería detrás de la plataforma de seguros de Grupo ilao, construida con Django, PostgreSQL y HTMX.",
-      "Llevando el desarrollo asistido por IA al flujo real de un equipo: tickets con especificación primero, pruebas como puerta obligatoria, y revisiones centradas en el criterio y no en la sintaxis.",
-      "Publicando las skills de agentes que usamos para Django, HTMX, Alpine.js, Tailwind y pytest."
+      "Acompañando al equipo de ingeniería de Grupo ilao en la evolución de su plataforma de seguros.",
+      "Incorporando IA al desarrollo diario: definir el problema antes de generar código, validar con pruebas y revisar las decisiones, no solo la sintaxis.",
+      "Compartiendo instrucciones reutilizables para agentes de programación a partir de nuestra forma de trabajar."
     ]
   },
   "work": {
     "label": "trayectoria",
-    "heading": "Reto, decisión, resultado",
-    "intro": "Lo que hice en cada lugar, contado como lo contaría en una entrevista: cuál era el problema, qué decidí y qué pasó.",
+    "heading": "Decisiones, resultados y aprendizajes",
+    "intro": "Los retos que asumí, lo que aporté y lo que aprendí en cada etapa.",
     "keys": {
       "challenge": "El reto",
       "did": "Lo que hice",
@@ -109,9 +109,9 @@
           "Tailwind",
           "AWS"
         ],
-        "challenge": "Un grupo fundado en 2023 que en dos años unió más de veinte agencias de seguros y se convirtió en una de las cinco intermediarias más grandes de Colombia, con procesos que todavía vivían en papel y hojas de cálculo. Hacía falta una plataforma única para clientes y administradores, y un equipo propio capaz de construirla.",
-        "did": "Lidero el equipo de ingeniería y la arquitectura de la plataforma: Django y PostgreSQL en el centro, HTMX para la interfaz, integraciones con bancos y aseguradoras, y automatización de facturación y reportes. Traje el desarrollo asistido por IA al flujo diario del equipo con reglas claras: especificación antes del código, pruebas que no se negocian, y revisión humana sobre el criterio.",
-        "result": "Una plataforma propia, construida por un equipo interno, que hoy sostiene la operación de las agencias del grupo y crece con cada adquisición."
+        "challenge": "Desarrollar una plataforma de seguros con un equipo propio para acompañar el crecimiento del grupo.",
+        "did": "Lidero al equipo y las decisiones de arquitectura. Priorizo entregas incrementales y prácticas de desarrollo que permitan mantener y ampliar el producto.",
+        "result": "El equipo construyó una plataforma propia que apoya la operación del grupo y continúa evolucionando."
       },
       {
         "title": "CTO",
@@ -126,9 +126,9 @@
           "AWS",
           "GitHub Actions"
         ],
-        "challenge": "Una agencia de software con clientes en domicilios, restaurantes, fintech y salud, y equipos de QA, backend, frontend y DevOps que necesitaban una forma común de trabajar y de rendir cuentas al nivel directivo.",
-        "did": "Estandaricé el proceso de entrega alrededor del ciclo de vida del producto, OKRs y métricas claras, en cooperación con la dirección. Puse la base técnica que lo sostiene: CI/CD con GitHub Actions, linters para Python, JavaScript y HTML, contenedores de desarrollo y web components. Dirigí la parte técnica de productos como el e-commerce de Crepes & Waffles, la plataforma de seguros Vertech Worldwide y, como último proyecto, la plataforma de gestión inmobiliaria de MTS, con módulos de mantenimiento, presupuesto, proveedores, órdenes de compra e integración contable.",
-        "result": "Un 25 % más de eficiencia del equipo técnico y proyectos más predecibles, con más de cinco personas a cargo. Crepes & Waffles multiplicó por cinco sus ventas en línea y cumplió PCI DSS 4.0; Vertech opera en 14 países y procesa más de 150.000 pólizas al año; MTS redujo un 20 % el tiempo de mantenimiento y un 15 % sus costos operativos."
+        "challenge": "Alinear a los equipos de desarrollo, QA y operaciones de una agencia de software alrededor de prioridades y prácticas de entrega compartidas.",
+        "did": "Acordé objetivos y métricas con la dirección y estandaricé el proceso de entrega. Establecí una base compartida de integración continua, revisión automática de código y entornos de desarrollo.",
+        "result": "Bajo mi dirección técnica, los equipos entregaron productos como la tienda en línea de Crepes & Waffles, la plataforma de seguros Vertech Worldwide y la plataforma de gestión inmobiliaria de MTS."
       },
       {
         "title": "Senior Full Stack Developer",
@@ -139,9 +139,9 @@
           "Python",
           "Django"
         ],
-        "challenge": "Plataformas web a la medida para clientes con objetivos de negocio distintos, con dos personas reportándome y contacto directo con la dirección.",
-        "did": "Construí plataformas con Python y Django, hice pruebas con usuarios para tomar decisiones con datos, y acompañé a los desarrolladores del equipo.",
-        "result": "El paso natural a la dirección técnica de la empresa dos años después."
+        "challenge": "Construir plataformas web a la medida para distintos negocios y acompañar a dos desarrolladores, en contacto directo con la dirección.",
+        "did": "Desarrollé con Python y Django, hice pruebas con usuarios para orientar las decisiones y acompañé al equipo en el trabajo diario.",
+        "result": "En enero de 2018 asumí el cargo de CTO de la empresa."
       },
       {
         "title": "Director de desarrollo técnico",
@@ -154,8 +154,9 @@
           "HTML"
         ],
         "challenge": "Sitios y tiendas para clientes como Apple y el centro comercial Centro Chía, con un equipo de dos personas: un desarrollador frontend y yo en el backend.",
-        "did": "Construí el backend de plataformas con WordPress y Magento, definí el flujo de despliegue, participé en la contratación y formación del equipo, y dirigí estrategias de SEO y pruebas A/B para las campañas.",
-        "result": "Entre los dos sacamos adelante desarrollos para varios clientes, y aprendí a dirigir sin dejar de programar."
+        "did": "Construí el backend con WordPress y Magento y definí el proceso de despliegue. También participé en contratación y formación, SEO y pruebas A/B.",
+        "resultLabel": "Qué me llevé",
+        "result": "Aprendí a dirigir un equipo sin dejar de programar, combinando la entrega a clientes con la formación de otro desarrollador."
       },
       {
         "title": "Web Developer",
@@ -168,9 +169,10 @@
           "MySQL",
           "SQL Server"
         ],
-        "challenge": "Campañas de marketing con tráfico real para marcas como Cerveza Águila, Banco Colpatria y Banco de Bogotá.",
+        "challenge": "Desarrollar plataformas para campañas de Cerveza Águila, Banco Colpatria y Banco de Bogotá con fechas de lanzamiento definidas.",
         "did": "Implementé el backend de las plataformas de campaña y el seguimiento de interacciones.",
-        "result": "Cinco meses intensos que me enseñaron a entregar bajo fechas de lanzamiento."
+        "resultLabel": "Qué me llevé",
+        "result": "Aprendí a organizar el desarrollo alrededor de una fecha de lanzamiento."
       },
       {
         "title": "Web Developer",
@@ -183,29 +185,30 @@
         ],
         "challenge": "Mi primer trabajo en desarrollo web.",
         "did": "Maquetación y desarrollo en PHP y MySQL.",
-        "result": "Descubrí que esto era lo mío."
+        "resultLabel": "Qué me llevé",
+        "result": "Confirmé que quería dedicarme al desarrollo web."
       }
     ]
   },
   "decide": {
     "label": "cómo decido",
-    "heading": "Criterios que uso antes que la moda",
+    "heading": "Los principios detrás de mis decisiones",
     "items": [
       {
         "title": "Lo más simple que resuelve el problema completo",
-        "text": "Sin abstracciones especulativas, sin capas de compatibilidad, sin configuración para un futuro que no existe. Cada pieza extra se justifica con una variabilidad demostrada o un requisito explícito."
+        "text": "Evito añadir complejidad sin una necesidad concreta. Antes de crear una abstracción o una capa adicional, busco el requisito que la justifica."
       },
       {
         "title": "Crecer en capas",
-        "text": "Primero la versión más pequeña que funciona de punta a punta. Cada capacidad nueva se agrega sobre un producto que ya funciona. Nunca cambio algo que sirve por una complejidad a medio terminar."
+        "text": "Empiezo por una versión pequeña que funcione de punta a punta. Añado capacidades sobre esa base para validar cada paso sin perder lo que ya sirve."
       },
       {
         "title": "Tecnología aburrida que funciona",
-        "text": "Django, PostgreSQL y HTML servido desde el servidor resuelven la enorme mayoría de los problemas. Las librerías establecidas van antes que reinventar; un framework nuevo tiene que ganarse su lugar."
+        "text": "Mi punto de partida es Django, PostgreSQL y HTML generado en el servidor. Prefiero herramientas conocidas y bien mantenidas; adopto otras cuando el problema lo necesita."
       },
       {
         "title": "Decisiones para el largo plazo",
-        "text": "No acepto parches que solo sirven por ahora, y no se entrega nada con una prueba fallida. Es más barato decir que no a tiempo que reescribir después."
+        "text": "Si una solución es temporal, dejo claros sus límites y cuándo revisarla. Las pruebas deben pasar antes de entregar, y considero el costo de mantener el código, no solo el de escribirlo."
       }
     ]
   },
@@ -215,17 +218,17 @@
       {
         "name": "skills",
         "href": "https://github.com/felipe3dfx/skills",
-        "text": "Skills de agentes para Django, HTMX, Alpine.js, Tailwind 4 y pytest, para Claude Code y OpenCode."
+        "text": "Instrucciones reutilizables para trabajar con Django, HTMX, Alpine.js, Tailwind 4 y pytest mediante agentes de programación. Disponibles como skills para Claude Code y OpenCode."
       },
       {
         "name": "pi-engram",
         "href": "https://github.com/felipe3dfx/pi-engram",
-        "text": "Una extensión de Pi que le da memoria persistente a los agentes de código a través de Engram."
+        "text": "Memoria persistente para agentes de programación: una extensión de Pi basada en Engram."
       },
       {
         "name": "pi-workflow",
         "href": "https://github.com/felipe3dfx/pi-workflow",
-        "text": "Un paquete de Pi que lleva descubrimiento de producto, entrega y revisión con skills reutilizables."
+        "text": "Guías reutilizables para definir qué construir, desarrollar y revisar el resultado con agentes de programación. Un paquete de skills para Pi."
       }
     ]
   },

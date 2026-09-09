@@ -160,7 +160,7 @@ layout: base.njk
                 <dd class="text-body text-haze">{{ role.did }}</dd>
               </div>
               <div>
-                <dt class="text-label text-frost">{{ t.work.keys.result }}</dt>
+                <dt class="text-label text-frost">{{ role.resultLabel or t.work.keys.result }}</dt>
                 <dd class="text-body text-haze">{{ role.result }}</dd>
               </div>
             </dl>
