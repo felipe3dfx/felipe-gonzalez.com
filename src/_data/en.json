@@ -1,0 +1,262 @@
+{
+  "lang": "en",
+  "path": "/en/",
+  "alternate": {
+    "lang": "es",
+    "path": "/",
+    "label": "ES"
+  },
+  "meta": {
+    "title": "Felipe Gonzalez",
+    "description": "Felipe Gonzalez, Tech Lead at Grupo ilao. Django, engineering leadership, open source. Cajicá, Colombia."
+  },
+  "nav": [
+    {
+      "href": "#about",
+      "label": "about"
+    },
+    {
+      "href": "#now",
+      "label": "now"
+    },
+    {
+      "href": "#work",
+      "label": "work"
+    },
+    {
+      "href": "#decide",
+      "label": "how I decide"
+    },
+    {
+      "href": "#contact",
+      "label": "contact"
+    }
+  ],
+  "skip": "Skip to content",
+  "hero": {
+    "name": "Felipe Gonzalez",
+    "line": "Tech Lead at Grupo ilao. Django, teams, and shipping small things that work.",
+    "location": "Cajicá, Colombia · remote"
+  },
+  "contact": {
+    "label": "contact",
+    "lead": "If any of this resonated, write to me.",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/felipe3dfx"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/felipe3dfx/"
+      },
+      {
+        "label": "X",
+        "href": "https://x.com/felipezul"
+      },
+      {
+        "label": "YouTube",
+        "href": "https://www.youtube.com/@cto_gamer"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:felipe3dfx@gmail.com",
+        "primary": true
+      }
+    ]
+  },
+  "about": {
+    "label": "about",
+    "paragraphs": [
+      "Hi, I'm Felipe. I've been building things for the web since 2013, most of them with Python and Django, and for the last eight years I've been leading the people who build them.",
+      "I studied Multimedia Engineering, which is a fancy way of saying I started out caring about how things look and ended up caring about how they work. I spent almost nine years at Axiacore, first as a developer and then as CTO, learning that shipping software is mostly about people, clarity, and saying no to the right things. Today I lead engineering at Grupo ilao, where we're bringing modern software to an industry that still runs on paper and spreadsheets.",
+      "What I enjoy: boring technology that works, small teams that own what they ship, and watching a developer grow into someone who no longer needs me. What I avoid: clever code, big rewrites, and meetings that could have been a pull request.",
+      "I live in Cajicá, a small town north of Bogotá, and work remotely."
+    ]
+  },
+  "now": {
+    "label": "now",
+    "items": [
+      "Leading the engineering team behind Grupo ilao's insurance platform, built on Django, PostgreSQL and HTMX.",
+      "Bringing AI-assisted development into a real team's workflow: spec-first tickets, strict test gates, and reviews that focus on judgment rather than syntax.",
+      "Publishing the agent skills we use for Django, HTMX, Alpine.js, Tailwind and pytest."
+    ]
+  },
+  "work": {
+    "label": "work",
+    "heading": "Challenge, decision, result",
+    "intro": "What I did in each place, told the way I'd tell it in an interview: what the problem was, what I decided, and what happened.",
+    "keys": {
+      "challenge": "The challenge",
+      "did": "What I did",
+      "result": "The result"
+    },
+    "prev": "earlier",
+    "next": "later",
+    "roles": [
+      {
+        "title": "Tech Lead",
+        "company": "Grupo ilao",
+        "dates": "Oct 2024 – present",
+        "location": "Remote, Colombia",
+        "current": true,
+        "stack": [
+          "Python",
+          "Django",
+          "PostgreSQL",
+          "Redis",
+          "HTMX",
+          "Tailwind",
+          "AWS"
+        ],
+        "challenge": "A group founded in 2023 that brought together more than twenty insurance agencies in two years and became one of Colombia's five largest brokerages, with processes that still lived on paper and spreadsheets. It needed a single platform for clients and administrators, and an in-house team able to build it.",
+        "did": "I lead the engineering team and the platform's architecture: Django and PostgreSQL at the core, HTMX for the interface, integrations with banks and insurers, and automated billing and reporting. I brought AI-assisted development into the team's daily flow with clear rules: specification before code, tests that are not negotiable, and human review focused on judgment.",
+        "result": "An in-house platform, built by an internal team, that now supports the group's agencies and grows with every acquisition."
+      },
+      {
+        "title": "CTO",
+        "company": "Axiacore",
+        "dates": "Jan 2018 – Sep 2024",
+        "location": "Remote, Colombia",
+        "stack": [
+          "Python",
+          "Django",
+          "PostgreSQL",
+          "Docker",
+          "AWS",
+          "GitHub Actions"
+        ],
+        "challenge": "A software agency with clients in food delivery, restaurants, fintech and healthcare, and QA, backend, frontend and DevOps teams that needed one way of working and of reporting to the C-level.",
+        "did": "I standardized delivery around the product life cycle, OKRs and clear metrics, working with the executive team. I laid the technical base that holds it up: CI/CD with GitHub Actions, linters for Python, JavaScript and HTML, development containers and web components. I led the technical side of products such as the Crepes & Waffles e-commerce, the Vertech Worldwide insurance platform and, as my last project, MTS's real-estate management platform, with maintenance, budgeting, supplier, purchase-order and accounting-integration modules.",
+        "result": "A 25% gain in the tech team's efficiency and more predictable projects, with five-plus people reporting to me. Crepes & Waffles grew online sales fivefold and met PCI DSS 4.0; Vertech operates in 14 countries and processes over 150,000 policies a year; MTS cut maintenance time by 20% and operating costs by 15%."
+      },
+      {
+        "title": "Senior Full Stack Developer",
+        "company": "Axiacore",
+        "dates": "Jan 2016 – Dec 2017",
+        "location": "Bogotá",
+        "stack": [
+          "Python",
+          "Django"
+        ],
+        "challenge": "Custom web platforms for clients with different business goals, with two people reporting to me and direct contact with the C-level.",
+        "did": "I built platforms with Python and Django, ran user testing to make decisions with data, and mentored the developers on the team.",
+        "result": "The natural step into the company's technical leadership two years later."
+      },
+      {
+        "title": "Director of Technical Development",
+        "company": "lequar",
+        "dates": "Aug 2014 – Jan 2016",
+        "location": "Bogotá",
+        "stack": [
+          "WordPress",
+          "Magento",
+          "HTML"
+        ],
+        "challenge": "Sites and stores for clients such as Apple and the Centro Chía shopping center, with a two-person team: a frontend developer and me on the backend.",
+        "did": "I built the backend of WordPress and Magento platforms, defined the deployment flow, took part in hiring and training, and ran SEO and A/B testing strategies for campaigns.",
+        "result": "Between the two of us we shipped work for several clients, and I learned to lead without stopping coding."
+      },
+      {
+        "title": "Web Developer",
+        "company": "Mass Digital",
+        "dates": "Apr 2014 – Aug 2014",
+        "location": "Bogotá",
+        "stack": [
+          "ASP.NET",
+          "PHP",
+          "MySQL",
+          "SQL Server"
+        ],
+        "challenge": "Marketing campaigns with real traffic for brands such as Cerveza Águila, Banco Colpatria and Banco de Bogotá.",
+        "did": "I implemented the campaign platforms' backend and interaction tracking.",
+        "result": "Five intense months that taught me to deliver against launch dates."
+      },
+      {
+        "title": "Web Developer",
+        "company": "Mottif",
+        "dates": "Nov 2013 – Apr 2014",
+        "location": "Bogotá",
+        "stack": [
+          "PHP",
+          "MySQL"
+        ],
+        "challenge": "My first job in web development.",
+        "did": "Markup and development in PHP and MySQL.",
+        "result": "I found out this was my thing."
+      }
+    ]
+  },
+  "decide": {
+    "label": "how I decide",
+    "heading": "Criteria I use before fashion",
+    "items": [
+      {
+        "title": "The simplest thing that solves the whole problem",
+        "text": "No speculative abstractions, no compatibility layers, no configuration for a future that doesn't exist. Every extra piece earns its place with demonstrated variability or an explicit requirement."
+      },
+      {
+        "title": "Grow in layers",
+        "text": "First the smallest version that works end to end. Each new capability goes on top of a product that already works. I never trade something that works for half-finished complexity."
+      },
+      {
+        "title": "Boring technology that works",
+        "text": "Django, PostgreSQL and server-rendered HTML solve the vast majority of problems. Established libraries come before reinventing; a new framework has to earn its place."
+      },
+      {
+        "title": "Decisions for the long term",
+        "text": "I don't accept stopgaps that only work for now, and nothing ships with a failing test. Saying no early is cheaper than rewriting later."
+      }
+    ]
+  },
+  "oss": {
+    "label": "open source",
+    "items": [
+      {
+        "name": "skills",
+        "href": "https://github.com/felipe3dfx/skills",
+        "text": "Agent skills for Django, HTMX, Alpine.js, Tailwind 4 and pytest, for Claude Code and OpenCode."
+      },
+      {
+        "name": "pi-engram",
+        "href": "https://github.com/felipe3dfx/pi-engram",
+        "text": "A Pi extension that gives coding agents persistent memory through Engram."
+      },
+      {
+        "name": "pi-workflow",
+        "href": "https://github.com/felipe3dfx/pi-workflow",
+        "text": "A Pi package that runs product discovery, delivery and review through reusable skills."
+      }
+    ]
+  },
+  "stack": {
+    "label": "stack",
+    "rows": [
+      {
+        "key": "backend",
+        "value": "Python, Django, PostgreSQL, Redis"
+      },
+      {
+        "key": "frontend",
+        "value": "HTMX, Alpine.js, Tailwind CSS"
+      },
+      {
+        "key": "infra",
+        "value": "Docker, AWS, GitHub Actions, OpenTofu"
+      }
+    ]
+  },
+  "education": {
+    "label": "education",
+    "degree": "Multimedia Engineering · Universidad Militar Nueva Granada",
+    "years": "2007 – 2012"
+  },
+  "footer": {
+    "site": "felipe-gonzalez.com"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "line": "Nothing at this depth. Go back to the surface.",
+    "link": "felipe-gonzalez.com"
+  }
+}

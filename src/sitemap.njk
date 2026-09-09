@@ -1,0 +1,33 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  urls:
+    - loc: https://felipe-gonzalez.com/
+      alternates:
+        - hreflang: es
+          href: https://felipe-gonzalez.com/
+        - hreflang: en
+          href: https://felipe-gonzalez.com/en/
+        - hreflang: x-default
+          href: https://felipe-gonzalez.com/
+    - loc: https://felipe-gonzalez.com/en/
+      alternates:
+        - hreflang: es
+          href: https://felipe-gonzalez.com/
+        - hreflang: en
+          href: https://felipe-gonzalez.com/en/
+        - hreflang: x-default
+          href: https://felipe-gonzalez.com/
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for url in urls %}
+  <url>
+    <loc>{{ url.loc }}</loc>
+{%- for alt in url.alternates %}
+    <xhtml:link rel="alternate" hreflang="{{ alt.hreflang }}" href="{{ alt.href }}"></xhtml:link>
+{%- endfor %}
+  </url>
+{%- endfor %}
+</urlset>

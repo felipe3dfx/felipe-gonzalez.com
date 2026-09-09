@@ -1,0 +1,248 @@
+---
+layout: base.njk
+---
+{%- set roles = t.work.roles | reverse -%}
+{%- set n = t.work.roles | length -%}
+{%- set last = n - 1 -%}
+{%- set tones = ["var(--color-ivory)", "var(--color-mist)", "var(--color-haze)", "var(--color-frost)"] -%}
+{%- set tracks = ["0", "0.02em", "0.04em", "0.06em"] -%}
+
+<div x-data="{ active: '' }">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-void focus:px-3 focus:py-2 focus:text-ivory">{{ t.skip }}</a>
+
+<header class="sticky top-0 z-30 bg-void">
+  <div class="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 py-4 md:gap-x-8 md:py-5">
+
+      <div class="order-1 flex w-full shrink-0 items-center gap-3 md:w-auto">
+        <svg viewBox="0 0 14 9" width="28" height="18" shape-rendering="crispEdges" aria-hidden="true" class="shrink-0">
+          <g fill="currentColor">
+            <rect x="1" y="1" width="4" height="1"></rect>
+            <rect x="1" y="2" width="1" height="1"></rect>
+            <rect x="1" y="3" width="1" height="1"></rect>
+            <rect x="1" y="4" width="3" height="1"></rect>
+            <rect x="1" y="5" width="1" height="1"></rect>
+            <rect x="1" y="6" width="1" height="1"></rect>
+            <rect x="1" y="7" width="1" height="1"></rect>
+            <rect x="7" y="1" width="4" height="1"></rect>
+            <rect x="6" y="2" width="1" height="1"></rect>
+            <rect x="6" y="3" width="1" height="1"></rect>
+            <rect x="6" y="4" width="1" height="1"></rect>
+            <rect x="8" y="4" width="3" height="1"></rect>
+            <rect x="6" y="5" width="1" height="1"></rect>
+            <rect x="10" y="5" width="1" height="1"></rect>
+            <rect x="6" y="6" width="1" height="1"></rect>
+            <rect x="10" y="6" width="1" height="1"></rect>
+            <rect x="7" y="7" width="3" height="1"></rect>
+          </g>
+          <rect x="12" y="7" width="1" height="1" fill="#FFB000"></rect>
+        </svg>
+        <span class="text-label text-ivory">{{ t.footer.site }}</span>
+      </div>
+
+      <p class="order-3 shrink-0 text-label">
+        {%- if lang == "es" -%}
+        <span class="text-ivory" aria-current="true">ES</span><span class="text-frost"> / </span><a href="{{ t.alternate.path }}" hreflang="{{ t.alternate.lang }}" class="text-haze">{{ t.alternate.label }}</a>
+        {%- else -%}
+        <a href="{{ t.alternate.path }}" hreflang="{{ t.alternate.lang }}" class="text-haze">{{ t.alternate.label }}</a><span class="text-frost"> / </span><span class="text-ivory" aria-current="true">EN</span>
+        {%- endif -%}
+      </p>
+
+      <nav class="no-scrollbar order-2 min-w-0 flex-1 basis-0 overflow-x-auto md:overflow-visible">
+        <ul class="flex w-max items-center gap-x-7 gap-y-1 text-label text-haze md:w-auto md:flex-wrap">
+          {%- for item in t.nav %}
+          <li><a href="{{ item.href }}" class="whitespace-nowrap" :class="active === '{{ item.href | replace("#", "") }}' ? 'text-ivory' : ''"><span class="prefix" aria-hidden="true">&gt;</span>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+<div class="relative z-10 mx-auto flex min-h-svh max-w-[1600px] flex-col px-6 md:px-10 lg:px-16">
+
+  <main id="main" class="flex-1">
+
+    <section aria-labelledby="hero-name" class="flex min-h-[90svh] flex-col justify-between pt-10 pb-10 md:pt-16">
+      <div class="grid items-start gap-y-12 lg:grid-cols-[minmax(0,1fr)_448px] lg:gap-x-14">
+        <div>
+          <h1 id="hero-name" aria-label="{{ t.hero.name }}" class="text-display text-ivory"
+              x-data="{ full: '{{ t.hero.name }}', shown: '{{ t.hero.name }}' }"
+              x-init="if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { shown = full } else { shown = ''; let i = 0; let tm = setInterval(() => { i += 1; shown = full.slice(0, i); if (i >= full.length) clearInterval(tm) }, 58) }">
+            <span x-text="shown">{{ t.hero.name }}</span><span class="caret"></span>
+          </h1>
+          <p class="mt-8 max-w-[52ch] text-body text-ivory">{{ t.hero.line }}</p>
+          <p class="mt-5 text-label text-frost">{{ t.hero.location }}</p>
+        </div>
+        <img src="/img/profile-dither.png" width="448" height="445" alt="{{ t.hero.name }}" class="plate h-auto w-full max-w-[448px]" fetchpriority="high">
+      </div>
+
+      <ul class="mt-16 flex flex-wrap gap-x-9 gap-y-2 text-body text-haze">
+        {%- for link in t.contact.links %}
+        <li{% if link.primary %} class="text-ivory tracking-[0.08em]"{% endif %}><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section id="about" aria-labelledby="about-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'about'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pt-24 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 md:pt-32 lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="about-label" class="text-label text-frost">{{ t.about.label }}</h2>
+      <div class="max-w-[68ch] space-y-8 text-body text-ivory">
+        {%- for paragraph in t.about.paragraphs %}
+        <p>{{ paragraph }}</p>
+        {%- endfor %}
+      </div>
+    </section>
+
+    <section id="now" aria-labelledby="now-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'now'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="now-label" class="text-label text-frost">{{ t.now.label }}</h2>
+      <ul class="max-w-[68ch] space-y-5 text-body text-ivory">
+        {%- for item in t.now.items %}
+        <li class="grid grid-cols-[1.7em_minmax(0,1fr)]"><span class="prefix" aria-hidden="true">&gt;</span><span>{{ item }}</span></li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section id="work" aria-labelledby="work-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'work'" class="scroll-mt-28 pb-20 md:scroll-mt-24"
+             x-data="{
+               selected: {{ last }},
+               count: {{ n }},
+               tones: ['var(--color-ivory)', 'var(--color-mist)', 'var(--color-haze)', 'var(--color-frost)'],
+               tracks: ['0', '0.02em', '0.04em', '0.06em'],
+               step(i) { return Math.min(Math.abs(i - this.selected), 3) },
+               depth(i) { return { '--tone': this.tones[this.step(i)], '--track': this.tracks[this.step(i)] } },
+               reveal(el) { if (el) el.scrollIntoView({ inline: 'center', block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }) },
+               jump(d) { let i = Math.min(Math.max(this.selected + d, 0), this.count - 1); this.selected = i; this.reveal(this.$refs.rail.querySelectorAll('button')[i]) },
+               move(d, e) { let i = Math.min(Math.max(this.selected + d, 0), this.count - 1); let b = e.currentTarget.querySelectorAll('button')[i]; this.selected = i; b.focus(); this.reveal(b) }
+             }"
+             x-init="$nextTick(() => { let b = $refs.rail.querySelectorAll('button')[selected]; $refs.rail.scrollLeft = b.offsetLeft - ($refs.rail.clientWidth - b.offsetWidth) / 2 })">
+      <div class="grid gap-x-10 gap-y-6 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
+        <h2 id="work-label" class="text-label text-frost">{{ t.work.label }}</h2>
+        <div>
+          <p class="max-w-[62ch] text-body text-ivory">{{ t.work.heading }}</p>
+          <p class="mt-3 max-w-[62ch] text-body text-haze">{{ t.work.intro }}</p>
+        </div>
+      </div>
+
+      <div class="relative -mx-6 mt-16 md:-mx-10 lg:-mx-16">
+        <span class="rail-dots" aria-hidden="true"></span>
+        <ol x-ref="rail" @keydown.left.prevent="move(-1, $event)" @keydown.right.prevent="move(1, $event)" class="no-scrollbar relative flex snap-x snap-mandatory overflow-x-auto px-6 md:px-10 lg:px-16">
+          {%- for role in roles %}
+          {%- set d = last - loop.index0 %}
+          {%- set s = 3 if d > 3 else d %}
+          <li class="w-[10.5rem] shrink-0 snap-center md:w-auto md:flex-1">
+            <button type="button" @click="selected = {{ loop.index0 }}; reveal($event.currentTarget)" aria-pressed="{{ 'true' if loop.index0 == last else 'false' }}" :aria-pressed="selected === {{ loop.index0 }} ? 'true' : 'false'" style="--tone: {{ tones[s] }}; --track: {{ tracks[s] }}" :style="depth({{ loop.index0 }})" class="rail-item flex w-full flex-col items-center px-2 text-center hover:text-signal focus-visible:text-signal">
+              <span class="block h-[22px] text-label">{{ role.dates | startYear }}</span>
+              <span class="rail-tick mt-2{% if role.current %} text-signal{% endif %}"></span>
+              <span class="mt-4 block text-body">{{ role.title }}</span>
+              <span class="block text-body">{{ role.company }}</span>
+            </button>
+          </li>
+          {%- endfor %}
+        </ol>
+      </div>
+
+      <div class="mt-16 grid gap-x-10 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
+        <div class="space-y-16 md:col-start-2" aria-live="polite">
+          {%- for role in roles %}
+          <div :class="selected === {{ loop.index0 }} ? '' : 'hidden'">
+            <p class="text-body text-ivory">{{ role.title }} · {{ role.company }}</p>
+            <p class="mt-2 text-label text-frost">{{ role.dates }} · {{ role.location }}</p>
+            <p class="max-w-[62ch] text-label text-frost">{{ role.stack | join(" · ") }}</p>
+            <dl class="mt-5 max-w-[62ch] space-y-5">
+              <div>
+                <dt class="text-label text-frost">{{ t.work.keys.challenge }}</dt>
+                <dd class="text-body text-haze">{{ role.challenge }}</dd>
+              </div>
+              <div>
+                <dt class="text-label text-frost">{{ t.work.keys.did }}</dt>
+                <dd class="text-body text-haze">{{ role.did }}</dd>
+              </div>
+              <div>
+                <dt class="text-label text-frost">{{ t.work.keys.result }}</dt>
+                <dd class="text-body text-haze">{{ role.result }}</dd>
+              </div>
+            </dl>
+          </div>
+          {%- endfor %}
+        </div>
+
+        <ul class="mt-12 flex gap-x-10 text-label text-haze md:col-start-2">
+          <li><button type="button" @click="jump(-1)" :disabled="selected === 0" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost"><span class="prefix" aria-hidden="true">&lt;</span>{{ t.work.prev }}</button></li>
+          <li><button type="button" @click="jump(1)" disabled :disabled="selected === count - 1" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost">{{ t.work.next }}<span class="suffix" aria-hidden="true">&gt;</span></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="decide" aria-labelledby="decide-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'decide'" class="grid scroll-mt-28 gap-x-10 gap-y-8 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="decide-label" class="text-label text-frost">{{ t.decide.label }}</h2>
+      <div>
+        <p class="max-w-[62ch] text-body text-ivory">{{ t.decide.heading }}</p>
+        <ul class="mt-12 space-y-12">
+          {%- for item in t.decide.items %}
+          <li class="max-w-[62ch]">
+            <p class="text-body text-ivory">{{ item.title }}</p>
+            <p class="mt-2 text-body text-haze">{{ item.text }}</p>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="oss-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="oss-label" class="text-label text-frost">{{ t.oss.label }}</h2>
+      <ul class="max-w-[68ch] space-y-6">
+        {%- for item in t.oss.items %}
+        <li>
+          <p class="text-body text-ivory"><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ item.href }}" rel="noopener">{{ item.name }}</a></p>
+          <p class="mt-1 max-w-[62ch] pl-[1.7em] text-body text-haze">{{ item.text }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section aria-labelledby="stack-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="stack-label" class="text-label text-frost">{{ t.stack.label }}</h2>
+      <ul class="max-w-[68ch] space-y-3">
+        {%- for row in t.stack.rows %}
+        <li class="grid gap-x-8 sm:grid-cols-[7rem_minmax(0,1fr)]">
+          <span class="text-label text-frost">{{ row.key }}</span>
+          <span class="text-body text-ivory">{{ row.value }}</span>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section aria-labelledby="education-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="education-label" class="text-label text-frost">{{ t.education.label }}</h2>
+      <div class="max-w-[68ch]">
+        <p class="text-body text-ivory">{{ t.education.degree }}</p>
+        <p class="text-label text-frost">{{ t.education.years }}</p>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'contact'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pb-24 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
+      <h2 id="contact-label" class="text-label text-frost">{{ t.contact.label }}</h2>
+      <div class="max-w-[68ch]">
+        <p class="max-w-[62ch] text-body text-ivory">{{ t.contact.lead }}</p>
+        <ul class="mt-8 flex flex-wrap gap-x-9 gap-y-2 text-body text-haze">
+          {%- for link in t.contact.links %}
+          <li{% if link.primary %} class="text-ivory tracking-[0.08em]"{% endif %}><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="flex flex-wrap items-baseline gap-x-9 gap-y-3 pt-16 pb-14 text-body text-frost">
+    {%- for link in t.contact.links %}
+    <span><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></span>
+    {%- endfor %}
+    <span class="ml-auto text-label text-frost">{{ t.footer.site }}</span>
+  </footer>
+
+</div>
+
+</div>

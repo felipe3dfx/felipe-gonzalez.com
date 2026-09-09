@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T15:22:08Z",
+  "title": "Design System: Felipe Gonzalez — felipe-gonzalez.com",
+  "extensions": {
+    "colorMeta": {
+      "void": { "role": "neutral", "displayName": "Void", "canonical": "#000000", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "ash": { "role": "neutral", "displayName": "Ash", "canonical": "#1A1A1A", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "dust": { "role": "neutral", "displayName": "Dust", "canonical": "#4A4A4A", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "frost": { "role": "neutral", "displayName": "Frost", "canonical": "#7B7B7B", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "haze": { "role": "neutral", "displayName": "Haze", "canonical": "#9C9A92", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "mist": { "role": "neutral", "displayName": "Mist", "canonical": "#BDBAB0", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "ivory": { "role": "neutral", "displayName": "Ivory", "canonical": "#E6E2D6", "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#2e2e2e", "#4a4a4a", "#7b7b7b", "#9c9a92", "#e6e2d6"] },
+      "signal": { "role": "primary", "displayName": "Signal Amber", "canonical": "#FFB000", "tonalRamp": ["#4d3400", "#664500", "#805700", "#996800", "#cc8b00", "#ffb000", "#ffc44d", "#ffe0a3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name only, typed in on load, followed by the amber caret." },
+      "body": { "displayName": "Body", "purpose": "All prose, list copy, contact links, stack values." },
+      "label": { "displayName": "Label", "purpose": "Lowercase section tags, timestamps/locations, header wordmark, stack row keys. Wide letter-spacing is the sole cue distinguishing it from body text." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "caret-blink", "value": "steps(1, end) 1.06s infinite, visible 0%-62%, hidden 62.01%-100%", "purpose": "Hard-edged, non-eased hero caret blink; disabled under prefers-reduced-motion." },
+      { "name": "link-transition", "value": "color 240ms cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 240ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Link hover/focus shift toward signal amber; disabled under prefers-reduced-motion." },
+      { "name": "dust-field-fine", "value": "rate 0.030/s, size 1px, color #2e2e2e", "purpose": "Fastest, smallest parallax dust layer." },
+      { "name": "dust-field-mid", "value": "rate 0.015/s, size 2px, color #3b3b3b", "purpose": "Mid parallax dust layer, half the rate of the fine layer." },
+      { "name": "dust-field-coarse", "value": "rate 0.0075/s, size 3px, color #4a4a4a", "purpose": "Slowest, largest parallax dust layer, a quarter the rate of the fine layer." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px (also the pixelated-image threshold for .plate)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Prompt-Prefix List Item",
+      "kind": "custom",
+      "refersTo": "link-inline",
+      "description": "The `>` glyph opening every contact link and every now/experience bullet, the page's one recurring visual motif.",
+      "html": "<ul class=\"ds-prompt-list\"><li><span class=\"ds-prefix\">&gt;</span><a class=\"ds-link\" href=\"#\">GitHub</a></li></ul>",
+      "css": ".ds-prompt-list { list-style: none; padding: 0; margin: 0; font-family: 'Departure Mono', ui-monospace, monospace; font-size: 17px; line-height: 33px; } .ds-prefix { color: #7B7B7B; margin-right: 0.7em; } .ds-link { color: #E6E2D6; text-decoration-line: underline; text-decoration-color: rgba(230,226,214,0.4); text-underline-offset: 5px; text-decoration-thickness: 1px; transition: color 240ms cubic-bezier(0.16,1,0.3,1), text-decoration-color 240ms cubic-bezier(0.16,1,0.3,1); } .ds-link:hover, .ds-link:focus-visible { color: #FFB000; text-decoration-color: #FFB000; }"
+    },
+    {
+      "name": "Hero Caret",
+      "kind": "custom",
+      "refersTo": "caret",
+      "description": "Amber blinking block after the typed-in hero name; the amber's first reserved use.",
+      "html": "<span class=\"ds-hero\">Felipe Gonzalez<span class=\"ds-caret\"></span></span>",
+      "css": ".ds-hero { font-family: 'Departure Mono', ui-monospace, monospace; font-size: clamp(2.5rem, 5.1vw, 4.6rem); line-height: 1.1; letter-spacing: 0.01em; color: #E6E2D6; } .ds-caret { display: inline-block; width: 0.52em; height: 0.82em; margin-left: 0.24em; vertical-align: -0.06em; background-color: #FFB000; animation: ds-caret-blink 1.06s steps(1, end) infinite; } @keyframes ds-caret-blink { 0%, 62% { opacity: 1; } 62.01%, 100% { opacity: 0; } }"
+    },
+    {
+      "name": "Current-Role Marker",
+      "kind": "custom",
+      "refersTo": "marker-current-role",
+      "description": "Amber square marking only the current role in the Experience list; the amber's second reserved use.",
+      "html": "<div class=\"ds-role-row\"><span class=\"ds-marker\"></span><p class=\"ds-role-title\">Tech Lead · Grupo ilao</p></div>",
+      "css": ".ds-role-row { display: flex; align-items: flex-start; gap: 0.5em; font-family: 'Departure Mono', ui-monospace, monospace; } .ds-marker { display: inline-block; width: 0.6em; height: 0.6em; margin-top: 0.6em; background-color: #FFB000; flex-shrink: 0; } .ds-role-title { font-size: 17px; line-height: 33px; color: #E6E2D6; }"
+    },
+    {
+      "name": "Experience Depth Row",
+      "kind": "card",
+      "refersTo": "link-inline",
+      "description": "One Experience entry: title color and bullet color step down the ramp together as the role recedes into the past.",
+      "html": "<div class=\"ds-exp-row\"><p class=\"ds-exp-title\">CTO · Axiacore</p><p class=\"ds-exp-meta\">Jan 2018 – Sep 2024 · Remote, Colombia</p><ul class=\"ds-exp-bullets\"><li>Led QA, backend, frontend and DevOps teams of 5+ people.</li></ul></div>",
+      "css": ".ds-exp-row { font-family: 'Departure Mono', ui-monospace, monospace; } .ds-exp-title { font-size: 17px; line-height: 33px; color: #BDBAB0; } .ds-exp-meta { font-size: 16px; line-height: 22px; letter-spacing: 0.14em; color: #7B7B7B; } .ds-exp-bullets { margin-top: 0.75em; font-size: 17px; line-height: 33px; color: #9C9A92; list-style: none; padding: 0; }"
+    },
+    {
+      "name": "Section Label Column",
+      "kind": "custom",
+      "refersTo": "link-inline",
+      "description": "The lowercase section tag (about, now, experience...) sitting in the fixed-width label column beside each section's content.",
+      "html": "<div class=\"ds-section\"><h2 class=\"ds-section-label\">about</h2><div class=\"ds-section-body\">Content goes here.</div></div>",
+      "css": ".ds-section { display: grid; gap: 1.5rem 2.5rem; font-family: 'Departure Mono', ui-monospace, monospace; } @media (min-width: 768px) { .ds-section { grid-template-columns: 8rem minmax(0,1fr); } } @media (min-width: 1024px) { .ds-section { grid-template-columns: 11rem minmax(0,1fr); } } .ds-section-label { font-size: 16px; line-height: 22px; letter-spacing: 0.14em; color: #7B7B7B; } .ds-section-body { max-width: 68ch; font-size: 17px; line-height: 33px; color: #E6E2D6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Cracktro Void",
+    "overview": "The site is a title screen, not a résumé page: one bitmap line holds still over a black field while dust drifts behind it, and everything else the visitor learns arrives by scrolling down through darker, quieter layers of the same void. There is no card, no rule, no divider anywhere in the build — every section boundary is made by vertical space and a label-sized left-column tag (about, now, experience, open source, stack, education), never by a box. Rank and recency are told by value (how bright a color sits between void and ivory), not by containment.\n\nThe palette is a single achromatic ramp from black to warm-white bone, broken by exactly one hue: a signal amber reserved for state, not decoration. Depth is conveyed by three things working together — brightness step, letter-spacing, and drift rate — never by shadow. The one font is a bitmap monospace (Departure Mono) at three sizes; there is no serif, no display face, no second family anywhere in the shipped HTML.",
+    "keyCharacteristics": [
+      "One bitmap monospace face at three sizes (label / body / display), no display serif.",
+      "An eight-step achromatic ramp (void → ash → dust → frost → haze → mist → ivory) plus one reserved amber.",
+      "No shadows, no borders, no cards; depth is value + letter-spacing + drift, not elevation.",
+      "A live canvas of three parallel dust fields drifting at different rates behind all content.",
+      "`>` as the only recurring visual device: it marks every link-list item and every now/experience bullet, echoing a terminal prompt."
+    ],
+    "rules": [
+      { "name": "The Amber Reserve Rule", "body": "Amber marks state, never rank: it lights the hero caret and the current-role marker because those two things are alive right now, and it lights link hover, focus-visible, and selection because those are the browser's own state signals. It never appears as a decorative accent, a section marker, or a way to highlight a headline.", "section": "colors" },
+      { "name": "The No-Chrome Rule", "body": "No box-shadow, border, or background fill other than void appears anywhere in src/styles.css or index.html. Section, card, and list boundaries are made with spacing and text color alone.", "section": "colors" },
+      { "name": "The One-Face Rule", "body": "Every piece of type on the page, from the hero name to a footer link, renders in Departure Mono. A second family is never introduced for contrast; contrast comes from size, tracking, and the color ramp.", "section": "typography" },
+      { "name": "The Value-Not-Shadow Rule", "body": "Hierarchy and recency are told by how light a text color sits on the achromatic ramp (ivory → mist → haze → frost) plus letter-spacing, never by shadow, border, or background elevation.", "section": "elevation" },
+      { "name": "The Experience Depth-Ladder Rule", "body": "In the Experience list, each role's title steps one shade darker than the role above it as it recedes into the past — current role in ivory, the two most recent past roles in mist, the two earliest in haze, one entry reaching frost — and each role's bullet copy sits one ramp-step below its own title color. Letter-spacing on the title also widens slightly with each step back (0 → 0.02em → 0.04em → 0.06em → 0.08em).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every new color on the eight-step void→ivory ramp; if a new state needs a hue, it is amber or it doesn't ship.",
+      "Do signal recency and rank with ramp position and letter-spacing, per the Experience Depth-Ladder Rule, before reaching for any other device.",
+      "Do open new link-list or bullet items with the `>` prefix in frost, matching every existing list on the page.",
+      "Do keep the dust canvas at z-index: 0 under a z-index: 10 content wrapper, and respect prefers-reduced-motion for any new motion."
+    ],
+    "donts": [
+      "Don't add a box-shadow, border, background card, or divider rule anywhere; the No-Chrome Rule has no exceptions in the shipped build.",
+      "Don't introduce a second type family or a display-weight variant; the One-Face Rule means every size difference is expressed through the existing label/body/display scale.",
+      "Don't spend amber on anything that isn't the caret, the current-role marker, or a browser interaction state (hover/focus/selection) — it is not available as a highlight or accent color.",
+      "Don't round a corner. No element in the build carries border-radius."
+    ]
+  }
+}

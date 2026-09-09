@@ -1,0 +1,44 @@
+---
+layout: base.njk
+lang: es
+permalink: /404.html
+noindex: true
+metaTitle: "Página no encontrada · Page not found · Felipe Gonzalez"
+metaDescription: "Nada a esta profundidad. Nothing at this depth."
+---
+<div class="relative z-10 mx-auto flex min-h-svh max-w-[1600px] flex-col px-6 md:px-10 lg:px-16">
+
+  <header class="flex items-center gap-3 pt-7 md:pt-9">
+    <svg viewBox="0 0 14 9" width="28" height="18" shape-rendering="crispEdges" aria-hidden="true" class="shrink-0">
+      <g fill="currentColor">
+        <rect x="1" y="1" width="4" height="1"></rect>
+        <rect x="1" y="2" width="1" height="1"></rect>
+        <rect x="1" y="3" width="1" height="1"></rect>
+        <rect x="1" y="4" width="3" height="1"></rect>
+        <rect x="1" y="5" width="1" height="1"></rect>
+        <rect x="1" y="6" width="1" height="1"></rect>
+        <rect x="1" y="7" width="1" height="1"></rect>
+        <rect x="7" y="1" width="4" height="1"></rect>
+        <rect x="6" y="2" width="1" height="1"></rect>
+        <rect x="6" y="3" width="1" height="1"></rect>
+        <rect x="6" y="4" width="1" height="1"></rect>
+        <rect x="8" y="4" width="3" height="1"></rect>
+        <rect x="6" y="5" width="1" height="1"></rect>
+        <rect x="10" y="5" width="1" height="1"></rect>
+        <rect x="6" y="6" width="1" height="1"></rect>
+        <rect x="10" y="6" width="1" height="1"></rect>
+        <rect x="7" y="7" width="3" height="1"></rect>
+      </g>
+      <rect x="12" y="7" width="1" height="1" fill="#FFB000"></rect>
+    </svg>
+    <span class="text-label text-ivory">{{ es.footer.site }}</span>
+  </header>
+
+  <main class="flex flex-1 flex-col justify-center pb-24">
+    <h1 class="text-display text-ivory">{{ es.notFound.title }}<span class="caret"></span></h1>
+    <p class="mt-8 max-w-[52ch] text-body text-ivory" lang="es">{{ es.notFound.line }}</p>
+    <p class="mt-3 max-w-[52ch] text-body text-haze" lang="en">{{ en.notFound.line }}</p>
+    <p class="mt-10 text-body"><span class="prefix" aria-hidden="true">&gt;</span><a href="/">{{ es.notFound.link }}</a></p>
+  </main>
+
+</div>
