@@ -7,15 +7,15 @@ layout: base.njk
 {%- set tones = ["var(--color-ivory)", "var(--color-mist)", "var(--color-haze)", "var(--color-frost)"] -%}
 {%- set tracks = ["0", "0.02em", "0.04em", "0.06em"] -%}
 
-<div x-data="{ active: '' }">
+<div x-data="{ active: '', open: false, pastHero: false }">
 
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-void focus:px-3 focus:py-2 focus:text-ivory">{{ t.skip }}</a>
 
-<header class="sticky top-0 z-30 bg-void">
+<header class="void-fade sticky top-0 z-30 bg-void" @click.outside="open = false" @keydown.escape.window="open = false">
   <div class="mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16">
-    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 py-4 md:gap-x-8 md:py-5">
+    <div class="flex h-14 items-center gap-x-5 md:h-16 md:gap-x-8">
 
-      <div class="order-1 flex w-full shrink-0 items-center gap-3 md:w-auto">
+      <div class="flex shrink-0 items-center gap-3">
         <svg viewBox="0 0 14 9" width="28" height="18" shape-rendering="crispEdges" aria-hidden="true" class="shrink-0">
           <g fill="currentColor">
             <rect x="1" y="1" width="4" height="1"></rect>
@@ -38,10 +38,19 @@ layout: base.njk
           </g>
           <rect x="12" y="7" width="1" height="1" fill="#FFB000"></rect>
         </svg>
-        <span class="text-label text-ivory">{{ t.footer.site }}</span>
+        <span class="invisible hidden text-label text-ivory sm:inline" :class="{ invisible: !pastHero }">{{ t.site }}</span>
       </div>
 
-      <p class="order-3 shrink-0 text-label">
+      <nav class="ml-auto hidden shrink-0 xl:block" aria-label="{{ t.navLabel }}">
+        <ul class="flex flex-nowrap items-center gap-x-7 text-label text-haze">
+          {%- for item in t.nav %}
+          {%- set id = item.href | replace("#", "") %}
+          <li><a href="{{ item.href }}" class="whitespace-nowrap" :class="active === '{{ id }}' ? 'text-ivory' : ''"><span class="prefix invisible" aria-hidden="true" :class="{ invisible: active !== '{{ id }}' }">&gt;</span>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <p class="ml-auto shrink-0 text-label xl:ml-0">
         {%- if lang == "es" -%}
         <span class="text-ivory" aria-current="true">ES</span><span class="text-frost"> / </span><a href="{{ t.alternate.path }}" hreflang="{{ t.alternate.lang }}" class="text-haze">{{ t.alternate.label }}</a>
         {%- else -%}
@@ -49,62 +58,84 @@ layout: base.njk
         {%- endif -%}
       </p>
 
-      <nav class="no-scrollbar order-2 min-w-0 flex-1 basis-0 overflow-x-auto md:overflow-visible">
-        <ul class="flex w-max items-center gap-x-7 gap-y-1 text-label text-haze md:w-auto md:flex-wrap">
-          {%- for item in t.nav %}
-          <li><a href="{{ item.href }}" class="whitespace-nowrap" :class="active === '{{ item.href | replace("#", "") }}' ? 'text-ivory' : ''"><span class="prefix" aria-hidden="true">&gt;</span>{{ item.label }}</a></li>
-          {%- endfor %}
-        </ul>
-      </nav>
+      <button type="button" @click="open = !open" aria-expanded="false" :aria-expanded="open ? 'true' : 'false'" aria-controls="nav-panel" class="shrink-0 text-label text-ivory hover:text-signal xl:hidden"><span class="prefix" aria-hidden="true">&gt;</span><span x-data="{ labels: { open: {{ t.close | dump }}, closed: {{ t.menu | dump }} } }" x-text="open ? labels.open : labels.closed">{{ t.menu }}</span></button>
 
     </div>
   </div>
+
+  <nav id="nav-panel" aria-label="{{ t.navLabel }}" class="hidden bg-void xl:hidden" :class="{ hidden: !open }">
+    <div class="mx-auto max-w-[1600px] px-6">
+      <ul class="flex flex-col gap-y-4 pb-6 text-label text-haze">
+        {%- for item in t.nav %}
+        {%- set id = item.href | replace("#", "") %}
+        <li><a href="{{ item.href }}" @click="open = false" :class="active === '{{ id }}' ? 'text-ivory' : ''"><span class="prefix invisible" aria-hidden="true" :class="{ invisible: active !== '{{ id }}' }">&gt;</span>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <div class="relative z-10 mx-auto flex min-h-svh max-w-[1600px] flex-col px-6 md:px-10 lg:px-16">
 
   <main id="main" class="flex-1">
 
-    <section aria-labelledby="hero-name" class="flex min-h-[90svh] flex-col justify-between pt-10 pb-10 md:pt-16">
+    <section aria-labelledby="hero-name" x-intersect:leave="pastHero = true" x-intersect:enter="pastHero = false; active = ''" class="flex min-h-[80svh] flex-col justify-center pt-10 pb-10 md:pt-16">
       <div class="grid items-start gap-y-12 lg:grid-cols-[minmax(0,1fr)_448px] lg:gap-x-14">
         <div>
           <h1 id="hero-name" aria-label="{{ t.hero.name }}" class="text-display text-ivory"
-              x-data="{ full: '{{ t.hero.name }}', shown: '{{ t.hero.name }}' }"
+              x-data="{ full: {{ t.hero.name | dump }}, shown: {{ t.hero.name | dump }} }"
               x-init="if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { shown = full } else { shown = ''; let i = 0; let tm = setInterval(() => { i += 1; shown = full.slice(0, i); if (i >= full.length) clearInterval(tm) }, 58) }">
             <span x-text="shown">{{ t.hero.name }}</span><span class="caret"></span>
           </h1>
-          <p class="mt-8 max-w-[52ch] text-body text-ivory">{{ t.hero.line }}</p>
-          <p class="mt-5 text-label text-frost">{{ t.hero.location }}</p>
+          <p class="read mt-8 max-w-[45ch] text-lede text-ivory">{{ t.hero.line }}</p>
+          <p class="mt-6 text-label text-frost">{{ t.hero.location }}</p>
         </div>
-        <img src="/img/profile-dither.png" width="448" height="445" alt="{{ t.hero.name }}" class="plate h-auto w-full max-w-[448px]" fetchpriority="high">
+        <button type="button" aria-label="{{ t.hero.plate.label }}" aria-pressed="false" :aria-pressed="photo ? 'true' : 'false'" class="plate-tilt block w-full max-w-[448px]"
+                x-data="{
+                  photo: false,
+                  altDither: {{ t.hero.plate.altDither | dump }},
+                  altPhoto: {{ t.hero.plate.altPhoto | dump }},
+                  tilt(e) {
+                    if (e.pointerType !== 'mouse' || !window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+                    let r = $el.getBoundingClientRect()
+                    $el.style.setProperty('--ry', Math.round(((e.clientX - r.left) / r.width * 2 - 1) * 2) * 3 + 'deg')
+                    $el.style.setProperty('--rx', Math.round(((e.clientY - r.top) / r.height * 2 - 1) * -2) * 3 + 'deg')
+                  },
+                  reset() { $el.style.removeProperty('--rx'); $el.style.removeProperty('--ry') }
+                }"
+                x-init="new Image().src = '/img/profile.webp'"
+                @pointermove="tilt($event)" @pointerleave="reset()" @click="photo = !photo">
+          <img src="/img/profile-dither.png" :src="photo ? '/img/profile.webp' : '/img/profile-dither.png'" width="448" height="445" :width="photo ? 588 : 448" :height="photo ? 584 : 445" alt="{{ t.hero.plate.altDither }}" :alt="photo ? altPhoto : altDither" class="plate h-auto w-full" :class="{ plate: !photo }" fetchpriority="high">
+        </button>
       </div>
 
-      <ul class="mt-16 flex flex-wrap gap-x-9 gap-y-2 text-body text-haze">
-        {%- for link in t.contact.links %}
-        <li{% if link.primary %} class="text-ivory tracking-[0.08em]"{% endif %}><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></li>
-        {%- endfor %}
-      </ul>
     </section>
 
-    <section id="about" aria-labelledby="about-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'about'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pt-24 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 md:pt-32 lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="about-label" class="text-label text-frost">{{ t.about.label }}</h2>
-      <div class="max-w-[68ch] space-y-8 text-body text-ivory">
-        {%- for paragraph in t.about.paragraphs %}
-        <p>{{ paragraph }}</p>
-        {%- endfor %}
+    <section id="about" aria-labelledby="about-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'about'" class="scroll-offset pt-24 pb-24 md:pt-32">
+      <h2 id="about-label" class="text-section text-ivory">{{ t.about.label }}</h2>
+      <div class="read mt-4">
+        <p class="max-w-[50ch] text-title text-ivory">{{ t.about.heading }}</p>
+        <div class="mt-8 max-w-[70ch] space-y-3 text-body text-mist">
+          {%- for paragraph in t.about.paragraphs %}
+          <p>{{ paragraph }}</p>
+          {%- endfor %}
+        </div>
       </div>
     </section>
 
-    <section id="now" aria-labelledby="now-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'now'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="now-label" class="text-label text-frost">{{ t.now.label }}</h2>
-      <ul class="max-w-[68ch] space-y-5 text-body text-ivory">
-        {%- for item in t.now.items %}
-        <li class="grid grid-cols-[1.7em_minmax(0,1fr)]"><span class="prefix" aria-hidden="true">&gt;</span><span>{{ item }}</span></li>
-        {%- endfor %}
-      </ul>
+    <section id="now" aria-labelledby="now-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'now'" class="scroll-offset pb-24">
+      <h2 id="now-label" class="text-section text-ivory">{{ t.now.label }}</h2>
+      <div class="read mt-4">
+        <p class="max-w-[50ch] text-title text-ivory">{{ t.now.heading }}</p>
+        <ul class="mt-8 max-w-[70ch] space-y-3 text-body text-mist">
+          {%- for item in t.now.items %}
+          <li class="grid grid-cols-[1.7em_minmax(0,1fr)]"><span class="prefix" aria-hidden="true">&gt;</span><span>{{ item }}</span></li>
+          {%- endfor %}
+        </ul>
+      </div>
     </section>
 
-    <section id="work" aria-labelledby="work-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'work'" class="scroll-mt-28 pb-20 md:scroll-mt-24"
+    <section id="work" aria-labelledby="work-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'work'" class="scroll-offset pb-24"
              x-data="{
                selected: {{ last }},
                count: {{ n }},
@@ -117,15 +148,13 @@ layout: base.njk
                move(d, e) { let i = Math.min(Math.max(this.selected + d, 0), this.count - 1); let b = e.currentTarget.querySelectorAll('button')[i]; this.selected = i; b.focus(); this.reveal(b) }
              }"
              x-init="$nextTick(() => { let b = $refs.rail.querySelectorAll('button')[selected]; $refs.rail.scrollLeft = b.offsetLeft - ($refs.rail.clientWidth - b.offsetWidth) / 2 })">
-      <div class="grid gap-x-10 gap-y-6 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
-        <h2 id="work-label" class="text-label text-frost">{{ t.work.label }}</h2>
-        <div>
-          <p class="max-w-[62ch] text-body text-ivory">{{ t.work.heading }}</p>
-          <p class="mt-3 max-w-[62ch] text-body text-haze">{{ t.work.intro }}</p>
-        </div>
+      <h2 id="work-label" class="text-section text-ivory">{{ t.work.label }}</h2>
+      <div class="read mt-4">
+        <p class="max-w-[50ch] text-title text-ivory">{{ t.work.heading }}</p>
+        <p class="mt-4 max-w-[66ch] text-body text-haze">{{ t.work.intro }}</p>
       </div>
 
-      <div class="relative -mx-6 mt-16 md:-mx-10 lg:-mx-16">
+      <div class="rail-sticky -mx-6 mt-8 md:-mx-10 lg:-mx-16">
         <span class="rail-dots" aria-hidden="true"></span>
         <ol x-ref="rail" @keydown.left.prevent="move(-1, $event)" @keydown.right.prevent="move(1, $event)" class="no-scrollbar relative flex snap-x snap-mandatory overflow-x-auto px-6 md:px-10 lg:px-16">
           {%- for role in roles %}
@@ -135,54 +164,52 @@ layout: base.njk
             <button type="button" @click="selected = {{ loop.index0 }}; reveal($event.currentTarget)" aria-pressed="{{ 'true' if loop.index0 == last else 'false' }}" :aria-pressed="selected === {{ loop.index0 }} ? 'true' : 'false'" style="--tone: {{ tones[s] }}; --track: {{ tracks[s] }}" :style="depth({{ loop.index0 }})" class="rail-item flex w-full flex-col items-center px-2 text-center hover:text-signal focus-visible:text-signal">
               <span class="block h-[22px] text-label">{{ role.dates | startYear }}</span>
               <span class="rail-tick mt-2{% if role.current %} text-signal{% endif %}"></span>
-              <span class="mt-4 block text-body">{{ role.title }}</span>
-              <span class="block text-body">{{ role.company }}</span>
+              <span class="mt-4 block text-body tracking-[inherit]">{{ role.title }}</span>
+              <span class="block text-body tracking-[inherit]">{{ role.company }}</span>
             </button>
           </li>
           {%- endfor %}
         </ol>
       </div>
 
-      <div class="mt-16 grid gap-x-10 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
-        <div class="space-y-16 md:col-start-2" aria-live="polite">
-          {%- for role in roles %}
-          <div :class="selected === {{ loop.index0 }} ? '' : 'hidden'">
-            <p class="text-body text-ivory">{{ role.title }} · {{ role.company }}</p>
-            <p class="mt-2 text-label text-frost">{{ role.dates }} · {{ role.location }}</p>
-            <p class="max-w-[62ch] text-label text-frost">{{ role.stack | join(" · ") }}</p>
-            <dl class="mt-5 max-w-[62ch] space-y-5">
-              <div>
-                <dt class="text-label text-frost">{{ t.work.keys.challenge }}</dt>
-                <dd class="text-body text-haze">{{ role.challenge }}</dd>
-              </div>
-              <div>
-                <dt class="text-label text-frost">{{ t.work.keys.did }}</dt>
-                <dd class="text-body text-haze">{{ role.did }}</dd>
-              </div>
-              <div>
-                <dt class="text-label text-frost">{{ role.resultLabel or t.work.keys.result }}</dt>
-                <dd class="text-body text-haze">{{ role.result }}</dd>
-              </div>
-            </dl>
-          </div>
-          {%- endfor %}
+      <div class="mt-16 space-y-16" aria-live="polite">
+        {%- for role in roles %}
+        <div class="{{ '' if loop.index0 == last else 'hidden' }}" :class="{ hidden: selected !== {{ loop.index0 }} }">
+          <p class="read text-title font-medium text-ivory">{{ role.title }} · {{ role.company }}</p>
+          <p class="mt-2 text-label text-frost">{{ role.dates }} · {{ role.location }}</p>
+          <p class="max-w-[50ch] text-label text-frost">{{ role.stack | join(" · ") }}</p>
+          <dl class="mt-5 max-w-[62ch] space-y-6">
+            <div>
+              <dt class="text-label text-frost">{{ t.work.keys.challenge }}</dt>
+              <dd class="read text-body text-haze">{{ role.challenge }}</dd>
+            </div>
+            <div>
+              <dt class="text-label text-frost">{{ t.work.keys.did }}</dt>
+              <dd class="read text-body text-haze">{{ role.did }}</dd>
+            </div>
+            <div>
+              <dt class="text-label text-frost">{{ role.resultLabel or t.work.keys.result }}</dt>
+              <dd class="read text-body text-haze">{{ role.result }}</dd>
+            </div>
+          </dl>
         </div>
-
-        <ul class="mt-12 flex gap-x-10 text-label text-haze md:col-start-2">
-          <li><button type="button" @click="jump(-1)" :disabled="selected === 0" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost"><span class="prefix" aria-hidden="true">&lt;</span>{{ t.work.prev }}</button></li>
-          <li><button type="button" @click="jump(1)" disabled :disabled="selected === count - 1" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost">{{ t.work.next }}<span class="suffix" aria-hidden="true">&gt;</span></button></li>
-        </ul>
+        {%- endfor %}
       </div>
+
+      <ul class="mt-12 flex gap-x-10 text-label text-haze">
+        <li><button type="button" @click="jump(-1)" :disabled="selected === 0" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost"><span class="prefix" aria-hidden="true">&lt;</span>{{ t.work.prev }}</button></li>
+        <li><button type="button" @click="jump(1)" disabled :disabled="selected === count - 1" class="hover:text-signal disabled:cursor-default disabled:text-frost disabled:hover:text-frost">{{ t.work.next }}<span class="suffix" aria-hidden="true">&gt;</span></button></li>
+      </ul>
     </section>
 
-    <section id="decide" aria-labelledby="decide-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'decide'" class="grid scroll-mt-28 gap-x-10 gap-y-8 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="decide-label" class="text-label text-frost">{{ t.decide.label }}</h2>
-      <div>
-        <p class="max-w-[62ch] text-body text-ivory">{{ t.decide.heading }}</p>
-        <ul class="mt-12 space-y-12">
+    <section id="decide" aria-labelledby="decide-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'decide'" class="scroll-offset pb-24">
+      <h2 id="decide-label" class="text-section text-ivory">{{ t.decide.label }}</h2>
+      <div class="read mt-4">
+        <p class="max-w-[50ch] text-title text-ivory">{{ t.decide.heading }}</p>
+        <ul class="mt-12 space-y-10">
           {%- for item in t.decide.items %}
-          <li class="max-w-[62ch]">
-            <p class="text-body text-ivory">{{ item.title }}</p>
+          <li class="max-w-[66ch]">
+            <p class="text-title font-medium text-ivory">{{ item.title }}</p>
             <p class="mt-2 text-body text-haze">{{ item.text }}</p>
           </li>
           {%- endfor %}
@@ -190,45 +217,47 @@ layout: base.njk
       </div>
     </section>
 
-    <section aria-labelledby="oss-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="oss-label" class="text-label text-frost">{{ t.oss.label }}</h2>
-      <ul class="max-w-[68ch] space-y-6">
-        {%- for item in t.oss.items %}
-        <li>
-          <p class="text-body text-ivory"><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ item.href }}" rel="noopener">{{ item.name }}</a></p>
-          <p class="mt-1 max-w-[62ch] pl-[1.7em] text-body text-haze">{{ item.text }}</p>
-        </li>
-        {%- endfor %}
-      </ul>
-    </section>
-
-    <section aria-labelledby="stack-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="stack-label" class="text-label text-frost">{{ t.stack.label }}</h2>
-      <ul class="max-w-[68ch] space-y-3">
-        {%- for row in t.stack.rows %}
-        <li class="grid gap-x-8 sm:grid-cols-[7rem_minmax(0,1fr)]">
-          <span class="text-label text-frost">{{ row.key }}</span>
-          <span class="text-body text-ivory">{{ row.value }}</span>
-        </li>
-        {%- endfor %}
-      </ul>
-    </section>
-
-    <section aria-labelledby="education-label" class="grid gap-x-10 gap-y-6 pb-20 md:grid-cols-[8rem_minmax(0,1fr)] lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="education-label" class="text-label text-frost">{{ t.education.label }}</h2>
-      <div class="max-w-[68ch]">
-        <p class="text-body text-ivory">{{ t.education.degree }}</p>
-        <p class="text-label text-frost">{{ t.education.years }}</p>
+    <section aria-labelledby="oss-label" class="pb-24">
+      <h2 id="oss-label" class="text-section text-ivory">{{ t.oss.label }}</h2>
+      <div class="read mt-4">
+        <p class="max-w-[50ch] text-title text-ivory">{{ t.oss.heading }}</p>
+        <ul class="mt-8 max-w-[70ch] space-y-6">
+          {%- for item in t.oss.items %}
+          <li>
+            <p class="text-title font-medium text-ivory"><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ item.href }}" rel="noopener" target="_blank">{{ item.name }}<span class="sr-only">{{ t.newTab }}</span></a></p>
+            <p class="mt-1 max-w-[66ch] pl-[1.7em] text-body text-haze">{{ item.text }}</p>
+          </li>
+          {%- endfor %}
+        </ul>
       </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'contact'" class="grid scroll-mt-28 gap-x-10 gap-y-6 pb-24 md:grid-cols-[8rem_minmax(0,1fr)] md:scroll-mt-24 lg:grid-cols-[11rem_minmax(0,1fr)]">
-      <h2 id="contact-label" class="text-label text-frost">{{ t.contact.label }}</h2>
-      <div class="max-w-[68ch]">
-        <p class="max-w-[62ch] text-body text-ivory">{{ t.contact.lead }}</p>
-        <ul class="mt-8 flex flex-wrap gap-x-9 gap-y-2 text-body text-haze">
+    <section aria-labelledby="stack-label" class="pb-24">
+      <h2 id="stack-label" class="text-section text-ivory">{{ t.stack.label }}</h2>
+      <div class="mt-4">
+        <p class="read max-w-[50ch] text-title text-ivory">{{ t.stack.heading }}</p>
+        <ul class="mt-8 max-w-[68ch] space-y-3">
+        {%- for row in t.stack.rows %}
+        <li class="grid gap-x-8 sm:grid-cols-[7rem_minmax(0,1fr)]">
+          <span class="text-label text-frost">{{ row.key }}</span>
+          <span class="text-body text-mist">{{ row.value }}</span>
+        </li>
+        {%- endfor %}
+      </ul>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-label" x-intersect:enter.margin.-45%.0.-45%.0="active = 'contact'" class="scroll-offset pb-24">
+      <h2 id="contact-label" class="text-section text-ivory">{{ t.contact.label }}</h2>
+      <div class="mt-4 max-w-[68ch]">
+        <p class="read max-w-[50ch] text-title text-ivory">{{ t.contact.lead }}</p>
+        <p class="mt-8 text-lede wrap-anywhere text-ivory"><span class="prefix" aria-hidden="true">&gt;</span><a href="mailto:{{ t.contact.address }}">{{ t.contact.address }}</a></p>
+        <ul class="mt-10 flex flex-wrap gap-x-9 gap-y-2 text-label text-frost">
           {%- for link in t.contact.links %}
-          <li{% if link.primary %} class="text-ivory tracking-[0.08em]"{% endif %}><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></li>
+          {%- if not link.primary %}
+          {%- set ext = "mailto:" not in link.href %}
+          <li><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}" rel="me noopener"{% if ext %} target="_blank"{% endif %}>{{ link.label }}{% if ext %}<span class="sr-only">{{ t.newTab }}</span>{% endif %}</a></li>
+          {%- endif %}
           {%- endfor %}
         </ul>
       </div>
@@ -236,12 +265,6 @@ layout: base.njk
 
   </main>
 
-  <footer class="flex flex-wrap items-baseline gap-x-9 gap-y-3 pt-16 pb-14 text-body text-frost">
-    {%- for link in t.contact.links %}
-    <span><span class="prefix" aria-hidden="true">&gt;</span><a href="{{ link.href }}"{% if not link.primary %} rel="me noopener"{% endif %}>{{ link.label }}</a></span>
-    {%- endfor %}
-    <span class="ml-auto text-label text-frost">{{ t.footer.site }}</span>
-  </footer>
 
 </div>
 

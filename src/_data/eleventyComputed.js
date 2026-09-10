@@ -21,8 +21,6 @@ export default {
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Cajicá",
-        addressRegion: "Cundinamarca",
         addressCountry: "CO",
       },
       alumniOf: {

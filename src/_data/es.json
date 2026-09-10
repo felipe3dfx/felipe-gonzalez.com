@@ -8,7 +8,7 @@
   },
   "meta": {
     "title": "Felipe Gonzalez",
-    "description": "Felipe Gonzalez, Tech Lead en Grupo ilao. Django, liderazgo de ingeniería y open source. Cajicá, Colombia."
+    "description": "Felipe Gonzalez, Tech Lead en Grupo ilao. Liderazgo de ingeniería, producto y open source. Colombia."
   },
   "nav": [
     {
@@ -33,14 +33,24 @@
     }
   ],
   "skip": "Ir al contenido",
+  "navLabel": "Navegación del sitio",
+  "newTab": "(abre en una pestaña nueva)",
+  "menu": "menú",
+  "close": "cerrar",
   "hero": {
     "name": "Felipe Gonzalez",
-    "line": "Lidero equipos que construyen y mantienen productos web con Python y Django. Hoy, en Grupo ilao.",
-    "location": "Cajicá, Colombia · remoto"
+    "line": "Lidero equipos que construyen y mantienen productos web. Hoy, en Grupo ilao.",
+    "location": "Colombia",
+    "plate": {
+      "label": "Cambiar entre el retrato en píxeles y la fotografía",
+      "altDither": "Felipe Gonzalez, retrato en píxeles",
+      "altPhoto": "Felipe Gonzalez, fotografía"
+    }
   },
   "contact": {
     "label": "contacto",
-    "lead": "Si quieres conversar sobre Django, liderazgo técnico o desarrollo con IA, escríbeme.",
+    "lead": "Si quieres conversar sobre liderazgo técnico, producto o desarrollo con IA, escríbeme.",
+    "address": "felipe3dfx@gmail.com",
     "links": [
       {
         "label": "GitHub",
@@ -67,15 +77,16 @@
   },
   "about": {
     "label": "sobre mí",
+    "heading": "Llevo más de una década en la web; el código se reescribe, el equipo queda.",
     "paragraphs": [
-      "Hola, soy Felipe. Construyo software para la web desde 2013. Estudié Ingeniería Multimedia: empecé por cómo se ven las cosas y fui encontrando mi lugar en cómo funcionan.",
+      "Hola, soy Felipe. Construyo software para la web desde 2013. Estudié Ingeniería Multimedia en la Universidad Militar Nueva Granada (2007–2012): empecé por cómo se ven las cosas y fui encontrando mi lugar en cómo funcionan.",
       "Pasé casi nueve años en Axiacore, primero como desarrollador y luego como CTO. Allí aprendí que entregar software depende tanto de las personas y las prioridades claras como del código.",
-      "Disfruto trabajar con equipos pequeños que se hacen responsables de lo que entregan y ver a un desarrollador crecer hasta que ya no me necesita. Busco dar contexto y autonomía, no tener la última palabra en cada decisión.",
-      "Vivo en Cajicá, un pueblo al norte de Bogotá, y trabajo remoto."
+      "Disfruto trabajar con equipos pequeños que se hacen responsables de lo que entregan y ver a un desarrollador crecer hasta que ya no me necesita. Busco dar contexto y autonomía, no tener la última palabra en cada decisión."
     ]
   },
   "now": {
     "label": "ahora",
+    "heading": "Aprendiendo a programar con IA sin delegarle el criterio.",
     "items": [
       "Acompañando al equipo de ingeniería de Grupo ilao en la evolución de su plataforma de seguros.",
       "Incorporando IA al desarrollo diario: definir el problema antes de generar código, validar con pruebas y revisar las decisiones, no solo la sintaxis.",
@@ -98,7 +109,7 @@
         "title": "Tech Lead",
         "company": "Grupo ilao",
         "dates": "Oct 2024 – presente",
-        "location": "Remoto, Colombia",
+        "location": "Colombia",
         "current": true,
         "stack": [
           "Python",
@@ -117,7 +128,7 @@
         "title": "CTO",
         "company": "Axiacore",
         "dates": "Ene 2018 – Sep 2024",
-        "location": "Remoto, Colombia",
+        "location": "Colombia",
         "stack": [
           "Python",
           "Django",
@@ -140,7 +151,7 @@
           "Django"
         ],
         "challenge": "Construir plataformas web a la medida para distintos negocios y acompañar a dos desarrolladores, en contacto directo con la dirección.",
-        "did": "Desarrollé con Python y Django, hice pruebas con usuarios para orientar las decisiones y acompañé al equipo en el trabajo diario.",
+        "did": "Construí las plataformas, hice pruebas con usuarios para orientar las decisiones y acompañé al equipo en el trabajo diario.",
         "result": "En enero de 2018 asumí el cargo de CTO de la empresa."
       },
       {
@@ -154,7 +165,7 @@
           "HTML"
         ],
         "challenge": "Sitios y tiendas para clientes como Apple y el centro comercial Centro Chía, con un equipo de dos personas: un desarrollador frontend y yo en el backend.",
-        "did": "Construí el backend con WordPress y Magento y definí el proceso de despliegue. También participé en contratación y formación, SEO y pruebas A/B.",
+        "did": "Construí el backend y definí el proceso de despliegue. También participé en contratación y formación, SEO y pruebas A/B.",
         "resultLabel": "Qué me llevé",
         "result": "Aprendí a dirigir un equipo sin dejar de programar, combinando la entrega a clientes con la formación de otro desarrollador."
       },
@@ -184,7 +195,7 @@
           "MySQL"
         ],
         "challenge": "Mi primer trabajo en desarrollo web.",
-        "did": "Maquetación y desarrollo en PHP y MySQL.",
+        "did": "Maquetación y desarrollo del lado del servidor.",
         "resultLabel": "Qué me llevé",
         "result": "Confirmé que quería dedicarme al desarrollo web."
       }
@@ -204,7 +215,7 @@
       },
       {
         "title": "Tecnología aburrida que funciona",
-        "text": "Mi punto de partida es Django, PostgreSQL y HTML generado en el servidor. Prefiero herramientas conocidas y bien mantenidas; adopto otras cuando el problema lo necesita."
+        "text": "Prefiero herramientas conocidas y bien mantenidas antes que lo último: son más fáciles de sostener y de entregarle a quien llegue después. Cambio de opción cuando el problema lo justifica, no por curiosidad."
       },
       {
         "title": "Decisiones para el largo plazo",
@@ -214,6 +225,7 @@
   },
   "oss": {
     "label": "open source",
+    "heading": "Publico lo que usamos a diario, no experimentos.",
     "items": [
       {
         "name": "skills",
@@ -234,6 +246,7 @@
   },
   "stack": {
     "label": "stack",
+    "heading": "Herramientas que conozco a fondo, no una lista de todo lo que he tocado.",
     "rows": [
       {
         "key": "backend",
@@ -249,17 +262,10 @@
       }
     ]
   },
-  "education": {
-    "label": "formación",
-    "degree": "Ingeniería Multimedia · Universidad Militar Nueva Granada",
-    "years": "2007 – 2012"
-  },
-  "footer": {
-    "site": "felipe-gonzalez.com"
-  },
   "notFound": {
     "title": "Página no encontrada",
     "line": "Nada a esta profundidad. Vuelve a la superficie.",
     "link": "felipe-gonzalez.com"
-  }
+  },
+  "site": "felipe-gonzalez.com"
 }

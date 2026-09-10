@@ -8,7 +8,7 @@
   },
   "meta": {
     "title": "Felipe Gonzalez",
-    "description": "Felipe Gonzalez, Tech Lead at Grupo ilao. Django, engineering leadership, open source. Cajicá, Colombia."
+    "description": "Felipe Gonzalez, Tech Lead at Grupo ilao. Engineering leadership, product and open source. Colombia."
   },
   "nav": [
     {
@@ -33,14 +33,24 @@
     }
   ],
   "skip": "Skip to content",
+  "navLabel": "Site navigation",
+  "newTab": "(opens in a new tab)",
+  "menu": "menu",
+  "close": "close",
   "hero": {
     "name": "Felipe Gonzalez",
-    "line": "I lead teams that build and maintain web products with Python and Django. Currently at Grupo ilao.",
-    "location": "Cajicá, Colombia · remote"
+    "line": "I lead teams that build and maintain web products. Currently at Grupo ilao.",
+    "location": "Colombia",
+    "plate": {
+      "label": "Toggle between the pixel portrait and the photograph",
+      "altDither": "Felipe Gonzalez, pixel portrait",
+      "altPhoto": "Felipe Gonzalez, photograph"
+    }
   },
   "contact": {
     "label": "contact",
-    "lead": "Want to talk about Django, engineering leadership or AI-assisted development? Get in touch.",
+    "lead": "Want to talk about engineering leadership, product or AI-assisted development? Get in touch.",
+    "address": "felipe3dfx@gmail.com",
     "links": [
       {
         "label": "GitHub",
@@ -67,15 +77,16 @@
   },
   "about": {
     "label": "about",
+    "heading": "I've spent over a decade on the web; code gets rewritten, teams stay.",
     "paragraphs": [
-      "Hi, I'm Felipe. I've been building software for the web since 2013. I studied Multimedia Engineering: I started with how things look and found my place in how they work.",
+      "Hi, I'm Felipe. I've been building software for the web since 2013. I studied Multimedia Engineering at Universidad Militar Nueva Granada (2007–2012): I started with how things look and found my place in how they work.",
       "I spent almost nine years at Axiacore, first as a developer and then as CTO. There I learned that delivering software depends as much on people and clear priorities as it does on code.",
-      "I enjoy working with small teams that own what they ship and watching a developer grow into someone who no longer needs me. I aim to give people context and autonomy, not have the final say on every decision.",
-      "I live in Cajicá, a small town north of Bogotá, and work remotely."
+      "I enjoy working with small teams that own what they ship and watching a developer grow into someone who no longer needs me. I aim to give people context and autonomy, not have the final say on every decision."
     ]
   },
   "now": {
     "label": "now",
+    "heading": "Learning to build with AI without handing over my judgment.",
     "items": [
       "Supporting Grupo ilao's engineering team as we develop its insurance platform.",
       "Bringing AI into everyday development: defining the problem before generating code, validating with tests and reviewing decisions, not just syntax.",
@@ -98,7 +109,7 @@
         "title": "Tech Lead",
         "company": "Grupo ilao",
         "dates": "Oct 2024 – present",
-        "location": "Remote, Colombia",
+        "location": "Colombia",
         "current": true,
         "stack": [
           "Python",
@@ -117,7 +128,7 @@
         "title": "CTO",
         "company": "Axiacore",
         "dates": "Jan 2018 – Sep 2024",
-        "location": "Remote, Colombia",
+        "location": "Colombia",
         "stack": [
           "Python",
           "Django",
@@ -140,7 +151,7 @@
           "Django"
         ],
         "challenge": "Build custom web platforms for different businesses while mentoring two developers and working directly with the executive team.",
-        "did": "I developed with Python and Django, ran user tests to guide decisions and supported the team's day-to-day work.",
+        "did": "I built the platforms, ran user tests to guide decisions and supported the team's day-to-day work.",
         "result": "In January 2018, I became the company's CTO."
       },
       {
@@ -154,7 +165,7 @@
           "HTML"
         ],
         "challenge": "Sites and stores for clients such as Apple and the Centro Chía shopping center, with a two-person team: a frontend developer and me on the backend.",
-        "did": "I built the backend with WordPress and Magento and defined the deployment process. I also contributed to hiring and training, SEO and A/B testing.",
+        "did": "I built the backend and defined the deployment process. I also contributed to hiring and training, SEO and A/B testing.",
         "resultLabel": "What I learned",
         "result": "I learned to lead a team while staying hands-on, balancing client delivery with mentoring another developer."
       },
@@ -184,7 +195,7 @@
           "MySQL"
         ],
         "challenge": "My first job in web development.",
-        "did": "Markup and development in PHP and MySQL.",
+        "did": "Markup and server-side development.",
         "resultLabel": "What I learned",
         "result": "I knew I wanted to pursue a career in web development."
       }
@@ -204,7 +215,7 @@
       },
       {
         "title": "Boring technology that works",
-        "text": "My starting point is Django, PostgreSQL and server-rendered HTML. I prefer familiar, well-maintained tools and adopt others when the problem calls for them."
+        "text": "I prefer familiar, well-maintained tools over the newest ones: they are easier to keep running and to hand over to whoever comes next. I switch when the problem justifies it, not out of curiosity."
       },
       {
         "title": "Decisions for the long term",
@@ -214,6 +225,7 @@
   },
   "oss": {
     "label": "open source",
+    "heading": "I publish what we use daily, not experiments.",
     "items": [
       {
         "name": "skills",
@@ -234,6 +246,7 @@
   },
   "stack": {
     "label": "stack",
+    "heading": "Tools I know well, not a list of everything I've touched.",
     "rows": [
       {
         "key": "backend",
@@ -249,17 +262,10 @@
       }
     ]
   },
-  "education": {
-    "label": "education",
-    "degree": "Multimedia Engineering · Universidad Militar Nueva Granada",
-    "years": "2007 – 2012"
-  },
-  "footer": {
-    "site": "felipe-gonzalez.com"
-  },
   "notFound": {
     "title": "Page not found",
     "line": "Nothing at this depth. Go back to the surface.",
     "link": "felipe-gonzalez.com"
-  }
+  },
+  "site": "felipe-gonzalez.com"
 }

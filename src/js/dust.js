@@ -17,7 +17,7 @@
 
   var fields = [
     {
-      seed: 0xf3e798, size: 1, color: "#2e2e2e", rate: 0.030,
+      seed: 0xf3e798, size: 1, color: "#2e2e2e", rate: 0.030, scroll: 0.04, pointer: 0.01,
       bands: [
         { count: 520, y: -0.05, slope: 0.72, amp: 0.10, freq: 4.6, phase: 0.4, spread: 0.080 },
         { count: 470, y: 0.86, slope: -0.60, amp: 0.09, freq: 3.9, phase: 2.1, spread: 0.070 },
@@ -26,7 +26,7 @@
       ]
     },
     {
-      seed: 0x69a41c, size: 2, color: "#3b3b3b", rate: 0.015,
+      seed: 0x69a41c, size: 2, color: "#3b3b3b", rate: 0.015, scroll: 0.09, pointer: 0.02,
       bands: [
         { count: 240, y: 0.06, slope: 0.62, amp: 0.08, freq: 3.4, phase: 1.2, spread: 0.055 },
         { count: 200, y: 0.96, slope: -0.56, amp: 0.07, freq: 4.6, phase: 3.3, spread: 0.048 },
@@ -34,7 +34,7 @@
       ]
     },
     {
-      seed: 0x2d7b04, size: 3, color: "#4a4a4a", rate: 0.0075,
+      seed: 0x2d7b04, size: 3, color: "#4a4a4a", rate: 0.0075, scroll: 0.16, pointer: 0.035,
       bands: [
         { count: 70, y: 0.20, slope: 0.50, amp: 0.06, freq: 2.6, phase: 0.9, spread: 0.042 },
         { count: 60, y: 0.84, slope: -0.32, amp: 0.05, freq: 3.7, phase: 2.6, spread: 0.036 },
@@ -70,6 +70,9 @@
   var dpr = 1;
   var w = 0;
   var h = 0;
+  var scrollY = window.scrollY || 0;
+  var pointerTargetX = 0;
+  var pointerX = 0;
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -86,7 +89,7 @@
     for (var i = 0; i < fields.length; i++) {
       var field = fields[i];
       var points = built[i];
-      var shift = elapsed * field.rate;
+      var shift = elapsed * field.rate + (scrollY / h) * field.scroll + pointerX * field.pointer;
       ctx.fillStyle = field.color;
       for (var j = 0; j < points.length; j++) {
         var p = points[j];
@@ -102,6 +105,7 @@
 
   function frame(now) {
     if (start === null) start = now;
+    pointerX += (pointerTargetX - pointerX) * 0.06;
     draw((now - start) / 1000);
     window.requestAnimationFrame(frame);
   }
@@ -112,6 +116,21 @@
     draw(0);
   } else {
     window.requestAnimationFrame(frame);
+  }
+
+  window.addEventListener("scroll", function () {
+    scrollY = window.scrollY;
+  }, { passive: true });
+
+  if (!reduced) {
+    window.addEventListener("pointermove", function (event) {
+      if (event.pointerType !== "mouse") return;
+      pointerTargetX = event.clientX / w - 0.5;
+    }, { passive: true });
+
+    document.documentElement.addEventListener("pointerleave", function () {
+      pointerTargetX = 0;
+    }, { passive: true });
   }
 
   var pending;

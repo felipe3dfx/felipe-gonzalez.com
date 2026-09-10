@@ -28,13 +28,14 @@ An engineering leader who has spent over a decade shipping with Python and Djang
 ## Operating Context
 
 - One page in two languages: Spanish at `/` and English at `/en/`. Read on desktop and mobile, often from a LinkedIn, X or GitHub profile link.
-- Content sections agreed with the user: hero with profile photo and social links; About (warm, first person); Now (what he is working on, generalized); Experience (six entries); Open source (three repos); Stack (backend, frontend, infra); Education.
+- Content sections agreed with the user: hero with profile photo and social links; About (warm, first person); Now (what he is working on, generalized); Experience (six entries); Open source (three repos); Stack (backend, frontend, infra).
 - Language of the site: English. Working language with the owner: Spanish.
 
 ## Capabilities and Constraints
 
 - Confidential: work at Grupo ilao is described in general terms only. Never mention the legacy .NET migration, the internal AI assistant's internals, or specific integrations.
 - Do not mention Gentle-AI or AI Gentle Stack.
+- Privacy: the site states country only. Never publish the owner's town, region, street-level location, or working modality (remote/on-site) — in copy, metadata, or JSON-LD. This applies to repository documents too, since the repository is public.
 - Experience omits C.I Cocinas and Arcadia by the owner's decision.
 - No recognitions/certifications section.
 - Social links to include: GitHub (felipe3dfx), LinkedIn (felipe3dfx), X (@felipezul), YouTube (@cto_gamer), email (felipe3dfx@gmail.com).
@@ -52,7 +53,7 @@ An engineering leader who has spent over a decade shipping with Python and Djang
 ## Evidence on Hand
 
 - `src/img/profile.webp`: profile photo (source). `src/img/og.png`: social card rendered from `src/og.njk`.
-- Résumé facts from LinkedIn (2026-09-09): Tech Lead at Grupo ilao (Oct 2024 to present); Axiacore CTO (Jan 2018 to Sep 2024) and Senior Full Stack Developer (2016 to 2017); Director of Technical Development at lequar (2014 to 2016); Web Developer at Mass Digital (2014); Web Developer at Mottif (2013 to 2014). Multimedia Engineering, Universidad Militar Nueva Granada, 2007 to 2012. Based in Cajicá, Colombia.
+- Résumé facts from LinkedIn (2026-09-09): Tech Lead at Grupo ilao (Oct 2024 to present); Axiacore CTO (Jan 2018 to Sep 2024) and Senior Full Stack Developer (2016 to 2017); Director of Technical Development at lequar (2014 to 2016); Web Developer at Mass Digital (2014); Web Developer at Mottif (2013 to 2014). Multimedia Engineering, Universidad Militar Nueva Granada, 2007 to 2012. Based in Colombia.
 - Public repos on GitHub as listed above.
 - No testimonials, metrics beyond LinkedIn's, or press. Do not fabricate any.
 
